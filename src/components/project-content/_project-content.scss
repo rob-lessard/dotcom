@@ -1,0 +1,89 @@
+@import '../../styles/utilities/utilities';
+
+// project content styles
+// --------------------------------------
+.project-content {
+    margin: 100px 0 0;
+    max-width: 90%;
+
+    @include mobile {
+        position: relative;
+        margin-top: 0;
+        max-width: 100%;
+    }
+
+    // list
+    &-list {
+        display: grid;
+        grid-gap: 5%;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto;
+        list-style-type: none;
+        margin: 0;
+        padding: 50px 0;
+        position: relative;
+
+        @include mobile {
+            grid-gap: 40px 0;
+            grid-template-columns: 100%;
+        }
+
+        li {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            justify-content: end;
+
+            span {
+                @include font-size($font-sm-max);
+                align-self: flex-start;
+                background-color: $color-accent;
+                color: $color-background;
+                display: block;
+                font-family: $base-font;
+                font-weight: $font-weight-regular;
+                padding: 0 10px;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    // link
+    &-link {
+        align-self: flex-start;
+        color: $color-gray80;
+        display: inline-block;
+        margin: 0;
+        position: relative;
+        text-decoration: none;
+
+        &:after {
+            content: "";
+            background: url("../../assets/right-arrow.svg") no-repeat;
+            background-size: 100%;
+            filter: invert(30%);
+            height: 60px;
+            width: 60px;
+            position: absolute;
+            top: 50%;
+            right: -60px;
+            transform: translateY(-50%) rotate(-40deg);
+        }
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        @include mobile {
+            margin: 30px 0 0;
+
+            &:before {
+                height: 18px;
+                width: 18px;
+                left: auto;
+                right: -27px;
+                transform: translateY(-50%) rotate(-30deg);
+            }
+        }
+    }
+}

@@ -1,0 +1,107 @@
+// import utilities
+@import '../../styles/utilities/utilities';
+
+// sidebar styles
+// --------------------------------------
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    right: 0;
+    height: 100vh;
+    width: 6vw;
+
+    @include mobile {
+        display: none;
+    }
+
+    // transition between views
+    .transition-enter & {
+         right: -100%;
+    }
+
+    .transition-enter-active & {
+        right: 0;
+        transition: right .55s ease;
+    }
+
+    &.transition-exit {}
+    &.transition-exit-active {}
+
+    // list
+    &-menu {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        writing-mode: vertical-rl;
+
+        // item
+        &-item {
+            display: inline-block;
+            margin: 40px 0;
+
+            // return
+            &--return {
+                position: relative;
+
+                a {
+                    display: block;
+
+                    &:before {
+                        content: "";
+                        background: url("../../assets/right-arrow.svg") no-repeat;
+                        background-size: 100%;
+                        filter: invert(30%);
+                        display: block;
+                        height: 50px;
+                        width: 50px;
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+
+            // name
+            &--name {
+                @include font-size($font-min, $font-max);
+                background-color: $color-accent;
+                color: $color-background;
+                padding: 10px 0;
+                text-transform: uppercase;
+            }
+        }
+
+        // link
+        &-link {
+            @include font-size($font-sm-min, $font-sm-max);
+            color: $color-body;
+            padding: 0 10px;
+            text-decoration: none;
+            text-transform: uppercase;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    // social
+    &-social {
+        @extend .sidebar-menu;
+        line-height: 1;
+        margin-bottom: 40px;
+        writing-mode: unset;
+
+        // item
+        &-item {
+            display: block;
+            margin: 0;
+        }
+
+        // link
+        &-link {
+            @extend .sidebar-menu-link;
+        }
+    }
+}

@@ -1,0 +1,102 @@
+@import '../../styles/utilities/utilities';
+
+// project list styles
+// --------------------------------------
+.project {
+    display: block;
+    padding: $global-spacing 0;
+    position: relative;
+
+    @include mobile {
+        padding: $global-spacing-mobile 0 0;
+    }
+
+    // heading
+    &-heading {
+        @include font-size($font-min, $font-max);
+        background-color: $color-accent;
+        color: $color-background;
+        display: inline-block;
+        font-family: $base-font;
+        font-weight: $font-weight-regular;
+        padding: 0 10px;
+        text-transform: uppercase;
+    }
+
+    // container
+    &-container {
+        display: block;
+        position: relative;
+    }
+
+    // list
+    &-list {
+        list-style-type: none;
+        margin: 60px 0 0;
+        padding: 0 0 0 110px;
+
+        @include mobile {
+            margin: 40px 0 0;
+            padding: 0;
+        }
+
+        // item
+        &-item {
+            @include font-size($font-h2-min, $font-h2-max);
+            display: block;
+            font-weight: $font-weight-regular;
+            margin: 15px 0;
+            position: relative;
+
+            &:first-child { margin-top: 0; }
+            &:last-child { margin-bottom: 0; }
+        }
+
+        // link
+        &-link {
+            color: $color-body;
+            display: inline-block;
+            text-decoration: none;
+            transform: skew(0);
+            transition: all .3s ease;
+            position: relative;
+
+            &:hover {
+                transform: skew(-7deg);
+                z-index: 2;
+            }
+        }
+    }
+
+    // project image
+    &-image {
+        @include object-fit();
+        @include ratio(750,450);
+        display: block;
+        height: auto;
+        margin: 0;
+        filter: blur(15px);
+        opacity: 0;
+        position: absolute;
+        left: 40%;
+        top: 50%;
+        transform: translateY(-50%) skewY(-3deg);
+        transition: all .4s ease;
+        width: 55%;
+        z-index: -1;
+
+        // when visible
+        &.is-visible {
+            filter: blur(0);
+            transform: translateY(-50%) skewY(0);
+            opacity: 1;
+            z-index: 1;
+        }
+
+        img { top: 0; }
+
+        @include mobile {
+            display: none;
+        }
+    }
+}

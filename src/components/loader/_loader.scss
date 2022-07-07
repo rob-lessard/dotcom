@@ -1,0 +1,40 @@
+@import '../../styles/utilities/utilities';
+
+// loader styles
+// --------------------------------------
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+
+    svg {
+        max-width: 400px;
+
+        path {
+            fill: $color-accent;
+            opacity: 0;
+            animation: loader 1.5s forwards;
+        }
+    }
+}
+
+// loader animation
+@keyframes loader {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@for $i from 1 through 10 {
+    .loader svg:nth-child(1n + #{$i}) {
+        animation-delay: 100ms;
+    }
+}

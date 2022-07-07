@@ -1,0 +1,66 @@
+// import utilities
+@import '../../styles/utilities/utilities';
+
+// intro styles
+// --------------------------------------
+.intro {
+    display: flex;
+    align-items: center;
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+
+    @include mobile {
+        min-height: auto;
+        padding-top: $global-spacing-mobile;
+    }
+
+    // heading
+    &-heading {
+        @include font-size($font-intro-min, $font-intro-max);
+        font-family: $base-font;
+        font-weight: $font-weight-medium;
+        line-height: 1;
+        margin: 0 0 100px;
+
+        @include mobile {
+            margin: 0 0 40px;
+        }
+
+        span {
+            display: block;
+            clip-path: inset(100% 0 0 0);
+            -webkit-clip-path: inset(100% 0 0 0);
+            transition: clip-path 1.5s ease;
+            width: 100%;
+
+            &:nth-child(1) { transition-delay: .2s; }
+            &:nth-child(2) { transition-delay: .3s; text-indent: 110px; }
+            &:nth-child(3) { transition-delay: .4s; text-indent: 250px; }
+            &:nth-child(4) { transition-delay: .5s; }
+
+            @include mobile {
+                &:nth-child(2) { text-indent: 0; }
+                &:nth-child(3) { text-indent: 0; }
+            }
+
+            // heading variant
+            &.intro-heading--alt {
+                @include font-size($font-min, $font-max);
+                background-color: $color-accent;
+                color: $color-background;
+                display: inline-block;
+                font-family: $base-font;
+                font-weight: $font-weight-regular;
+                line-height: 1.5;
+                padding: 0 10px;
+                text-transform: uppercase;
+                width: auto;
+
+                @include mobile {
+                    margin-bottom: 40px;
+                }
+            }
+        }
+    }
+}

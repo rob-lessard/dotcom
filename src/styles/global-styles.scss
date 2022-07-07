@@ -1,0 +1,149 @@
+// font
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;700;800&display=swap');
+
+// imports
+@import "utilities/utilities";
+
+// global styles
+html, body {
+    @include font-size($font-min, $font-max);
+    background-color: $color-background;
+    color: $color-body;
+    cursor: none;
+    font-family: $base-font;
+    font-weight: $font-weight-regular;
+    line-height: 1.7;
+    margin: 0;
+    overflow: hidden;
+
+    // Better font rendering
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    // hide cursor on links as well
+    a {
+        cursor: none;
+
+        @include mobile {
+            cursor: default !important;
+        }
+    }
+
+    @include mobile {
+        cursor: default !important;
+        overflow: visible;
+    }
+}
+
+// screen reader only
+.sr-only {
+    background: transparent !important;
+    border: none !important;
+    clip: rect(0, 0, 0, 0) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+}
+
+// custom scrollbar / scrolling
+.content-wrapper {
+    height: 100vh;
+
+    .scroll-content {
+        height: auto;
+        padding-left: 30px;
+        padding-right: 60px;
+    }
+
+    @include mobile {
+        height: auto;
+        padding: 0;
+
+        .scroll-content {
+            padding: 0;
+        }
+    }
+}
+
+.scrollbar-track-y,
+.scrollbar-track-x {
+    display: none !important;
+}
+
+// custom cursor
+$cursor-size: 30px;
+
+.cursor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+
+    &--custom {
+        width: $cursor-size;
+        height: $cursor-size;
+        left: -$cursor-size / 2;
+        top: -$cursor-size / 2;
+        border-radius: 50%;
+        z-index: 11000;
+        background: $color-body;
+        mix-blend-mode: difference;
+    }
+
+    @include mobile {
+        display: none;
+    }
+}
+
+// canvas
+canvas {
+    display: block;
+    position: fixed;
+    opacity: 1 !important;
+    z-index: -1; // put it to background
+    left: 0; // position it to fill the whole screen
+    top: 0; // position it to fill the whole screen
+}
+
+// main container
+.main-container {
+    box-sizing: border-box;
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: calc(100% - 6vw);
+
+    @include mobile {
+        padding: 0 15px;
+        width: 100%;
+    }
+
+    &.transition-enter {
+        opacity: 0;
+        top: 100px;
+        transition: all .65s ease 1s;
+
+        &.transition-enter-active {
+            opacity: 1;
+            top: 0;
+        }
+    }
+
+    &.transition-exit,
+    &.transition-exit-active {
+        opacity: 0;
+    }
+}
+
+// transition classes to use between views
+.transition-enter {}
+.transition-enter-active {}
+.transition-exit {}
+.transition-exit-active {}

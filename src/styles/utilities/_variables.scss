@@ -1,0 +1,73 @@
+
+// Global variables
+
+// font
+// --------------------------------------------------
+$base-font: 'Poppins', sans-serif;
+
+// font weights
+$font-weight-regular: 400;
+$font-weight-medium: 600;
+$font-weight-bold: 700;
+
+// base font
+$font-min: 16px;
+$font-max: 18px;
+
+// base font - sm
+$font-sm-min: 11px;
+$font-sm-max: 13px;
+
+// base font - lg
+$font-lg-min: 18px;
+$font-lg-max: 24px;
+
+// intro font
+$font-intro-min: 60px;
+$font-intro-max: 260px;
+
+// detail font
+$font-detail-min: 80px;
+$font-detail-max: 360px;
+
+// heading levels
+$font-h1-min: 48px;
+$font-h1-max: 80px;
+
+$font-h2-min: 32px;
+$font-h2-max: 60px;
+
+$font-h3-min: 28px;
+$font-h3-max: 36px;
+
+$font-h4-min: 24px;
+$font-h4-max: 28px;
+
+$font-h5-min: 18px;
+$font-h5-max: 24px;
+
+$font-h6-min: 16px;
+$font-h6-max: 18px;
+
+// colors
+// --------------------------------------------------
+$color-white: #fff;
+$color-gray05: darken($color-white, 5%);
+$color-gray10: darken($color-white, 10%);
+$color-gray20: darken($color-white, 20%);
+$color-gray30: darken($color-white, 30%);
+$color-gray40: darken($color-white, 40%);
+$color-gray50: darken($color-white, 50%);
+$color-gray60: darken($color-white, 60%);
+$color-gray70: darken($color-white, 70%);
+$color-gray80: darken($color-white, 80%);
+$color-gray90: darken($color-white, 90%);
+$color-black: #000;
+
+$color-accent: #e94235;
+$color-background: #edeae5;
+$color-body: #41413f;
+
+// spacing
+$global-spacing: 125px;
+$global-spacing-mobile: 60px;
