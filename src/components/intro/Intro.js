@@ -12,10 +12,9 @@ const Intro = () => {
     return (
         <div className='intro'>
             <h1 className='intro-heading get-skewed'>
-                <span className='intro-heading--alt'>Portfolio of Rob Lessard</span>
-                <span>Senior</span>
-                <span>Frontend</span>
-                <span>Developer</span>
+                <span className='intro-heading--alt'>Portfolio of</span>
+                <span>Robert</span>
+                <span>Lessard</span>
             </h1>
         </div>
     );

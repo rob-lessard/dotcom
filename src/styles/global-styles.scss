@@ -1,5 +1,5 @@
 // font
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&display=swap');
 
 // imports
 @import "utilities/utilities";
@@ -51,11 +51,12 @@ html, body {
 // custom scrollbar / scrolling
 .content-wrapper {
     height: 100vh;
+    margin: 0 -90px;
 
     .scroll-content {
         height: auto;
-        padding-left: 30px;
-        padding-right: 60px;
+        overflow: hidden;
+        padding: 0 #{$global-spacing-lg};
     }
 
     @include mobile {
@@ -116,9 +117,10 @@ canvas {
     box-sizing: border-box;
     display: block;
     overflow: hidden;
+    padding: 0 #{$global-spacing-lg};
     position: absolute;
     top: 0;
-    width: calc(100% - 6vw);
+    width: 100%;
 
     @include mobile {
         padding: 0 15px;

@@ -7,60 +7,23 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    padding: 0 0 $global-spacing;
+    padding: $global-spacing 0 $global-spacing-xl;
     position: relative;
-
-    &:after {
-        content: "";
-        background: url("../../assets/right-arrow.svg") no-repeat;
-        background-size: 100%;
-        filter: invert(30%);
-        height: 100px;
-        width: 100px;
-        position: absolute;
-        right: -45px;
-        bottom: 15px;
-    }
-
-    @include mobile {
-        padding: $global-spacing-mobile 0;
-
-        &:after {
-            display: none;
-        }
-    }
 
     // heading link
     &-heading-link {
         @include font-size($font-intro-min, $font-intro-max);
         color: $color-body;
-        font-weight: $font-weight-medium;
+        font-weight: $font-weight-bold;
         line-height: 1;
         justify-self: center;
         text-decoration: none;
+        text-shadow: $retro-shadow-text;
+        text-transform: uppercase;
         position: relative;
 
-        &:after {
-            content:"";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            height: 5%;
-            width: 0;
-            background-color: $color-body;
-            transition: width .3s ease;
-        }
-
         &:hover {
-            &:after {
-                width: 100%;
-            }
-        }
-
-        @include mobile {
-            &:after {
-                display: none;
-            }
+          text-decoration: underline;
         }
     }
 }

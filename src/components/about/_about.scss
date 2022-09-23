@@ -5,20 +5,20 @@
 // --------------------------------------
 .about {
     display: grid;
-    grid-template-columns: .5fr 1fr;
+    grid-template-columns: 1fr 1.5fr;
     grid-template-rows: auto;
-    padding: $global-spacing 0;
+    padding: $global-spacing-xl 0;
     position: relative;
 
     @include mobile {
-        padding: $global-spacing-mobile 0 0;
         grid-template-columns: 100%;
     }
 
     // heading
     &-heading {
         @include font-size($font-min, $font-max);
-        background-color: $color-accent;
+        background-color: $retro-red;
+        box-shadow: $retro-shadow-box;
         color: $color-background;
         display: inline-block;
         align-self: start;
@@ -32,19 +32,16 @@
     // content
     &-content {
         @include font-size($font-lg-min, $font-lg-max);
-        padding: $global-spacing ($global-spacing / 2) 0;
-
-        @include mobile {
-            padding: 0;
-        }
+        grid-column: 2;
 
         // content keywords
         span:not(.about-image) {
-            background-color: $color-accent;
-            color: $color-background;
+            //background-color: $retro-red;
+            //color: $color-background;
             display: inline-block;
-            margin: 0 3px;
+            margin: 0 15px;
             position: relative;
+            text-decoration: underline;
             z-index: 1;
 
             > span {
@@ -55,8 +52,8 @@
 
     // image
     &-image {
-        @include ratio(350,450);
         @include object-fit();
+        aspect-ratio: .7;
         filter: blur(15px);
         opacity: 0;
         left: -50%;
@@ -66,16 +63,12 @@
         position: absolute !important; // override other span tags
         height: auto;
         width: 350px;
+        display: none;
 
         &.is-visible {
             filter: blur(0);
             opacity: 1;
             transform: rotate(-5deg) skewY(0);
-        }
-
-        img {
-            position: absolute;
-            top: 0;
         }
 
         @include mobile {

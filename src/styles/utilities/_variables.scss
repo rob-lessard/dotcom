@@ -3,16 +3,15 @@
 
 // font
 // --------------------------------------------------
-$base-font: 'Poppins', sans-serif;
+$base-font: 'Anonymous Pro', monospace;
 
 // font weights
 $font-weight-regular: 400;
-$font-weight-medium: 600;
 $font-weight-bold: 700;
 
 // base font
-$font-min: 16px;
-$font-max: 18px;
+$font-min: 18px;
+$font-max: 21px;
 
 // base font - sm
 $font-sm-min: 11px;
@@ -24,7 +23,7 @@ $font-lg-max: 24px;
 
 // intro font
 $font-intro-min: 60px;
-$font-intro-max: 260px;
+$font-intro-max: 130px;
 
 // detail font
 $font-detail-min: 80px;
@@ -68,6 +67,94 @@ $color-accent: #e94235;
 $color-background: #edeae5;
 $color-body: #41413f;
 
+// retro colors
+$retro-purple: #4f4c5d;
+$retro-green: #8ebaa1;
+$retro-orange: #e4ab66;
+$retro-red: #d9631e;
+
+// background gradient
+$background-gradient-y:
+        linear-gradient(90deg,
+        rgba($retro-purple,1) 0%,
+        rgba($retro-purple,1) 25%,
+        rgba($color-background, 0) 25%,
+        rgba($color-background, 0) 27%,
+        rgba($retro-green,1) 27%,
+        rgba($retro-green,1) 50%,
+        rgba($color-background, 0) 50%,
+        rgba($color-background, 0) 52%,
+        rgba($retro-orange,1) 52%,
+        rgba($retro-orange,1) 75%,
+        rgba($color-background, 0) 75%,
+        rgba($color-background, 0) 77%,
+        rgba($retro-red,1) 77%,
+        rgba($retro-red,1) 100%);
+
+$background-gradient-x:
+        linear-gradient(180deg,
+        rgba($retro-purple,1) 0%,
+        rgba($retro-purple,1) 25%,
+        rgba($color-background, 0) 25%,
+        rgba($color-background, 0) 27%,
+        rgba($retro-green,1) 27%,
+        rgba($retro-green,1) 50%,
+        rgba($color-background, 0) 50%,
+        rgba($color-background, 0) 52%,
+        rgba($retro-orange,1) 52%,
+        rgba($retro-orange,1) 75%,
+        rgba($color-background, 0) 75%,
+        rgba($color-background, 0) 77%,
+        rgba($retro-red,1) 77%,
+        rgba($retro-red,1) 100%);
+
+$background-radial:
+        radial-gradient(circle,
+        rgba($retro-red,1) 0,
+        rgba($retro-red,1) 57px,
+        rgba($color-background,0) 57px,
+        rgba($color-background,0) 63px,
+        rgba($retro-orange,1) 63px,
+        rgba($retro-orange,1) 120px,
+        rgba($color-background,0) 120px,
+        rgba($color-background,0) 125px,
+        rgba($retro-green,1) 125px,
+        rgba($retro-green,1) 182px,
+        rgba($color-background,0) 182px,
+        rgba($color-background,0) 187px,
+        rgba($retro-purple,1) 187px,
+        rgba($retro-purple,1) 250px);
+
+$background-radial-invert:
+        radial-gradient(circle,
+        rgba($retro-purple,1) 0,
+        rgba($retro-purple,1) 46.25px,
+        rgba($color-background,0) 46.25px,
+        rgba($color-background,0) 51.25px,
+        rgba($retro-green,1) 51.25px,
+        rgba($retro-green,1) 97.5px,
+        rgba($color-background,0) 97.5px,
+        rgba($color-background,0) 102.5px,
+        rgba($retro-orange,1) 102.5px,
+        rgba($retro-orange,1) 148.75px,
+        rgba($color-background,0) 148.75px,
+        rgba($color-background,0) 153.75px,
+        rgba($retro-red,1) 153.75px,
+        rgba($retro-red,1) 200px);
+
+// radial specs
+$radial-clip: polygon(0% 0%, 0% 100%, 0px 100%, 0px 0px, 0px 0px, 250px 50%, 0px 50%, 0px 100%, 100% 100%, 100% 0%);
+$radial-clip-angle: polygon(0 50%, 50% 50%, 37% 100%, 0% 100%);
+
+$radial-size: 400px;
+
+// retro shadows
+$retro-shadow-off: 0 0 0 rgba($retro-green, 1);
+$retro-shadow-box: 4px 4px 0 rgba($retro-green, 1);
+$retro-shadow-text: 4px 4px 0 rgba($retro-green, 1);
+$retro-shadow-image: 10px 10px 0 rgba($retro-green, 1);
+
 // spacing
-$global-spacing: 125px;
-$global-spacing-mobile: 60px;
+$global-spacing: 30px;
+$global-spacing-lg: $global-spacing * 3;
+$global-spacing-xl: $global-spacing * 4;

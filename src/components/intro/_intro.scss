@@ -4,24 +4,67 @@
 // intro styles
 // --------------------------------------
 .intro {
-    display: flex;
-    align-items: center;
+    display: block;
+    margin: 0 #{-$global-spacing-lg};
+    overflow: hidden;
+    padding: 0 $global-spacing-lg;
     position: relative;
-    min-height: 100vh;
-    width: 100%;
+    height: 100vh;
+
+    // retro stripes
+    &:before {
+        content:"";
+        background: $background-gradient-x;
+        height: 6.5em;
+        width: 0;
+        position: absolute;
+        left: 0;
+        top: 20em;
+        animation: intro-x .75s 1s linear forwards;
+    }
+
+    &:after {
+        content:"";
+        background: $background-gradient-y;
+        height: 45em;
+        width: 15em;
+        position: absolute;
+        left: 56em;
+        top: .75em;
+        perspective: 1000px;
+        transform: perspective(10em) rotate(90deg) rotateX(-36deg);
+        clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+        animation: intro-y .75s 1.75s ease forwards;
+    }
+
+    // keyframe intro
+    @keyframes intro-x {
+        0% { width: 0; }
+        100% { width: 55.8em; }
+    }
+
+    @keyframes intro-y {
+        0% {
+            clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+        }
+        100% {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        }
+    }
 
     @include mobile {
         min-height: auto;
-        padding-top: $global-spacing-mobile;
     }
 
     // heading
     &-heading {
         @include font-size($font-intro-min, $font-intro-max);
         font-family: $base-font;
-        font-weight: $font-weight-medium;
-        line-height: 1;
-        margin: 0 0 100px;
+        font-weight: $font-weight-bold;
+        line-height: .8;
+        margin: 0;
+        padding-top: .3em;
+        position: relative;
 
         @include mobile {
             margin: 0 0 40px;
@@ -29,38 +72,43 @@
 
         span {
             display: block;
+            text-shadow: 0 0 0 rgba($retro-green, 1);
+            text-transform: uppercase;
+            animation: intro-text .25s 2.5s ease forwards;
             clip-path: inset(100% 0 0 0);
             -webkit-clip-path: inset(100% 0 0 0);
             transition: clip-path 1.5s ease;
-            width: 100%;
 
             &:nth-child(1) { transition-delay: .2s; }
-            &:nth-child(2) { transition-delay: .3s; text-indent: 110px; }
-            &:nth-child(3) { transition-delay: .4s; text-indent: 250px; }
+            &:nth-child(2) { transition-delay: .3s; }
+            &:nth-child(3) { transition-delay: .4s; }
             &:nth-child(4) { transition-delay: .5s; }
-
-            @include mobile {
-                &:nth-child(2) { text-indent: 0; }
-                &:nth-child(3) { text-indent: 0; }
-            }
 
             // heading variant
             &.intro-heading--alt {
                 @include font-size($font-min, $font-max);
-                background-color: $color-accent;
-                color: $color-background;
+                color: $color-body;
                 display: inline-block;
                 font-family: $base-font;
                 font-weight: $font-weight-regular;
                 line-height: 1.5;
-                padding: 0 10px;
-                text-transform: uppercase;
-                width: auto;
+                text-shadow: none !important;
+                text-transform: unset;
 
                 @include mobile {
                     margin-bottom: 40px;
                 }
             }
         }
+    }
+}
+
+@keyframes intro-text {
+    0% {
+        text-shadow: 0 0 0 rgba($retro-green, 1);
+    }
+
+    100% {
+        text-shadow: $retro-shadow-text;
     }
 }

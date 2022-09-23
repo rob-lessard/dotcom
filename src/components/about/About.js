@@ -29,13 +29,12 @@ const About = () => {
 
     return (
         <div id='aboutSection' className='about'>
-            <h2 className='about-heading'>About Me</h2>
-
             <div className='about-content'>
+                <h2 className='about-heading'>About Me</h2>
                 <p>Hey, I’m Rob. A developer with over a decade of practice in creating forward thinking experiences.</p>
                 <p>Here are a few things about me: I won a
                     <span className='hoverable'>
-                        <span>Webby Award in 2021</span>
+                        <span> Webby Award in 2021 </span>
                         <span className='about-image'>
                             <img src={webbyImage} alt='placeholder' />
                         </span>
@@ -43,19 +42,9 @@ const About = () => {
                     I've been a mentor to other developers. My creative background has given me a keen eye for detail. And I plan, design, build, test and maintain scalable frontend web applications.
                 </p>
 
-                {/*<p>Now lets get a little personal. When I’m not building award-winning web applications, I serve the role of uber driver for my daughter, a young dance enthusiast.*/}
-                {/*    I also enjoy boating, gaming and collecting*/}
-                {/*    <span className='hoverable'>*/}
-                {/*        <span>NFTs</span>*/}
-                {/*        <span className='about-image'>*/}
-                {/*            <img src={nftImage} alt='placeholder' />*/}
-                {/*        </span>*/}
-                {/*    </span>.*/}
-                {/*</p>*/}
-
                 <p>Now lets get a little personal. When I’m not building award-winning web applications, I wear many hats: Taxi service for my daughter, a young dance enthusiast, investor for new
                     <span className='hoverable'>
-                        <span>NFT</span>
+                        <span> NFT </span>
                         <span className='about-image'>
                             <img src={nftImage} alt='placeholder' />
                         </span>
