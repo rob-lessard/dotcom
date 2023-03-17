@@ -7,7 +7,7 @@
     display: grid;
     grid-template-columns: 1fr 1.5fr;
     grid-template-rows: auto;
-    padding: $global-spacing-xl 0;
+    padding: $global-spacing-xl 0 $global-spacing-xl;
     position: relative;
 
     @include mobile {
@@ -17,16 +17,10 @@
     // heading
     &-heading {
         @include font-size($font-min, $font-max);
-        background-color: $retro-red;
-        box-shadow: $retro-shadow-box;
-        color: $color-background;
+        color: $color-body;
         display: inline-block;
-        align-self: start;
-        justify-self: start;
-        font-family: $base-font;
         font-weight: $font-weight-regular;
-        padding: 0 10px;
-        text-transform: uppercase;
+        position: relative;
     }
 
     // content

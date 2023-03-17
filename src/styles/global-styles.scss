@@ -1,5 +1,5 @@
 // font
-@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&family=Poppins:wght@300;400;600;800&display=swap');
 
 // imports
 @import "utilities/utilities";
@@ -12,7 +12,7 @@ html, body {
     cursor: none;
     font-family: $base-font;
     font-weight: $font-weight-regular;
-    line-height: 1.7;
+    line-height: 1.4;
     margin: 0;
     overflow: hidden;
 
@@ -51,12 +51,12 @@ html, body {
 // custom scrollbar / scrolling
 .content-wrapper {
     height: 100vh;
-    margin: 0 -90px;
+    margin: 0;
 
     .scroll-content {
         height: auto;
         overflow: hidden;
-        padding: 0 #{$global-spacing-lg};
+        //padding: 0 #{$global-spacing-md};
     }
 
     @include mobile {
@@ -91,10 +91,24 @@ $cursor-size: 30px;
         height: $cursor-size;
         left: -$cursor-size / 2;
         top: -$cursor-size / 2;
+        background-color: $color-accent;
+        //border: 2px solid $color-accent;
         border-radius: 50%;
         z-index: 11000;
-        background: $color-body;
-        mix-blend-mode: difference;
+    }
+
+    svg {
+        display: none;
+        width: 50%;
+        fill: $color-white;
+        position: relative;
+        transform: rotate(-30deg);
+    }
+
+    &.hovering {
+        svg {
+            transform: rotate(90deg);
+        }
     }
 
     @include mobile {
@@ -114,10 +128,11 @@ canvas {
 
 // main container
 .main-container {
+    background-size: 200px;
     box-sizing: border-box;
     display: block;
     overflow: hidden;
-    padding: 0 #{$global-spacing-lg};
+    //padding: 0 #{$global-spacing-lg};
     position: absolute;
     top: 0;
     width: 100%;

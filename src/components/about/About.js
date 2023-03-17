@@ -30,7 +30,7 @@ const About = () => {
     return (
         <div id='aboutSection' className='about'>
             <div className='about-content'>
-                <h2 className='about-heading'>About Me</h2>
+                <h2 className='about-heading'>/About Me</h2>
                 <p>Hey, I’m Rob. A developer with over a decade of practice in creating forward thinking experiences.</p>
                 <p>Here are a few things about me: I won a
                     <span className='hoverable'>

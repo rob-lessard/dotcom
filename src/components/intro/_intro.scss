@@ -4,85 +4,87 @@
 // intro styles
 // --------------------------------------
 .intro {
-    display: block;
-    margin: 0 #{-$global-spacing-lg};
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
-    padding: 0 $global-spacing-lg;
+    padding: 0 $global-spacing-md;
     position: relative;
-    height: 100vh;
+    height: calc(100vh - 91px);
 
-    // retro stripes
     &:before {
         content:"";
-        background: $background-gradient-x;
-        height: 6.5em;
-        width: 0;
-        position: absolute;
+        display: block;
         left: 0;
-        top: 20em;
-        animation: intro-x .75s 1s linear forwards;
-    }
-
-    &:after {
-        content:"";
-        background: $background-gradient-y;
-        height: 45em;
-        width: 15em;
+        right: 0;
+        top: $global-spacing;
         position: absolute;
-        left: 56em;
-        top: .75em;
-        perspective: 1000px;
-        transform: perspective(10em) rotate(90deg) rotateX(-36deg);
-        clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
-        animation: intro-y .75s 1.75s ease forwards;
-    }
-
-    // keyframe intro
-    @keyframes intro-x {
-        0% { width: 0; }
-        100% { width: 55.8em; }
-    }
-
-    @keyframes intro-y {
-        0% {
-            clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
-        }
-        100% {
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-        }
+        height: 0;
+        border-top: 1px solid $color-body;
     }
 
     @include mobile {
-        min-height: auto;
+        height: auto;
+        padding: 0;
+
+        &:before {
+            top: $global-spacing / 2;
+        }
+    }
+
+    // content
+    &-content {
+        border-left: 1px solid $color-body;
+        border-right: 1px solid $color-body;
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        grid-template-rows: auto;
+        height: 100%;
+
+        @include mobile {
+            grid-gap: $global-spacing-xl 0;
+            grid-template-columns: 100%;
+            height: auto;
+        }
+
+        &-left {
+            border-right: 1px solid $color-body;
+            padding: 0 $global-spacing;
+            position: relative;
+
+            @include mobile {
+                border: none;
+                margin-top: $global-spacing / 2;
+                padding: 0 #{$global-spacing / 2};
+            }
+        }
+
+        &-right {
+            display: flex;
+            align-items: end;
+            justify-content: center;
+            padding: $global-spacing-md $global-spacing;
+
+            @include mobile {
+                display: block;
+                padding: 0 #{$global-spacing / 2};
+            }
+        }
     }
 
     // heading
     &-heading {
         @include font-size($font-intro-min, $font-intro-max);
-        font-family: $base-font;
+        color: $color-body;
+        font-family: $heading-font;
         font-weight: $font-weight-bold;
-        line-height: .8;
+        line-height: .9;
         margin: 0;
-        padding-top: .3em;
         position: relative;
-
-        @include mobile {
-            margin: 0 0 40px;
-        }
 
         span {
             display: block;
-            text-shadow: 0 0 0 rgba($retro-green, 1);
+            position: relative;
             text-transform: uppercase;
-            animation: intro-text .25s 2.5s ease forwards;
-            clip-path: inset(100% 0 0 0);
-            -webkit-clip-path: inset(100% 0 0 0);
-            transition: clip-path 1.5s ease;
-
-            &:nth-child(1) { transition-delay: .2s; }
-            &:nth-child(2) { transition-delay: .3s; }
-            &:nth-child(3) { transition-delay: .4s; }
-            &:nth-child(4) { transition-delay: .5s; }
 
             // heading variant
             &.intro-heading--alt {
@@ -92,7 +94,6 @@
                 font-family: $base-font;
                 font-weight: $font-weight-regular;
                 line-height: 1.5;
-                text-shadow: none !important;
                 text-transform: unset;
 
                 @include mobile {
@@ -101,14 +102,45 @@
             }
         }
     }
-}
 
-@keyframes intro-text {
-    0% {
-        text-shadow: 0 0 0 rgba($retro-green, 1);
+    // title
+    &-title {
+        color: $color-accent;
+        font-weight: $font-weight-semi;
+        position: absolute;
+        top: 7%;
+        right: -5%;
+        width: 15em;
+        height: 15em;
+        z-index: 1;
+        mix-blend-mode: luminosity;
+        animation: title-rotation 30s linear infinite;
+
+        @keyframes title-rotation {
+            0% {
+                transform: rotate(0deg)
+            }
+
+            100% {
+                transform: rotate(360deg)
+            }
+        }
+
+        @include mobile {
+            top: 22%;
+            right: -40%;
+        }
+
+        span {
+            position: absolute;
+            left: 50%;
+            transform-origin: 0 7.5em;
+        }
     }
 
-    100% {
-        text-shadow: $retro-shadow-text;
+    // copy
+    &-copy {
+        border-bottom: 1px solid $color-body;
+        border-top: 1px solid $color-body;
     }
 }

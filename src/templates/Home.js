@@ -3,6 +3,7 @@ import React from "react";
 import Scroll from "../scripts/scrollEffects";
 
 // import components
+import Navigation from "../components/navigation/Navigation";
 import Intro from "../components/intro/Intro";
 import Projects from "../components/project-list/Projects";
 import About from "../components/about/About";
@@ -14,8 +15,8 @@ const Home = () => {
             <div className='content-wrapper'>
                 <Scroll />
                 <Intro />
+                <Navigation />
                 <Projects />
-                <About />
                 <Contact />
             </div>
         </>

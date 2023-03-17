@@ -1,0 +1,41 @@
+// import utilities
+@import '../../styles/utilities/utilities';
+
+// navigation styles
+// --------------------------------------
+.navigation {
+    border-top: 1px solid $color-body;
+    border-bottom: 1px solid $color-body;
+    display: block;
+    margin-top: auto;
+    padding: 0 $global-spacing-md;
+
+    @include mobile {
+        display: none;
+    }
+
+    // list
+    &-list {
+        border-left: 1px solid $color-body;
+        border-right: 1px solid $color-body;
+        list-style-type: none;
+        margin: 0;
+        padding: $global-spacing;
+
+        // item
+        &-item {
+            display: inline-block;
+            margin-left: $global-spacing;
+
+            &:first-of-type {
+                margin-left: 0;
+            }
+        }
+
+        // link
+        &-link {
+            color: $color-body;
+            text-decoration: none;
+        }
+    }
+}

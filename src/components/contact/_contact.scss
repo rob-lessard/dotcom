@@ -4,26 +4,102 @@
 // contact styles
 // --------------------------------------
 .contact {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    padding: $global-spacing 0 $global-spacing-xl;
+    border-top: 1px solid $color-body;
+    border-bottom: 1px solid $color-body;
+    padding: 0 $global-spacing-md;
     position: relative;
 
-    // heading link
-    &-heading-link {
-        @include font-size($font-intro-min, $font-intro-max);
-        color: $color-body;
-        font-weight: $font-weight-bold;
-        line-height: 1;
-        justify-self: center;
-        text-decoration: none;
-        text-shadow: $retro-shadow-text;
-        text-transform: uppercase;
-        position: relative;
+    &:after {
+        content:"";
+        display: block;
+        left: 0;
+        right: 0;
+        bottom: $global-spacing;
+        position: absolute;
+        height: 0;
+        border-top: 1px solid $color-body;
+    }
 
-        &:hover {
-          text-decoration: underline;
+    @include mobile {
+        margin-bottom: $global-spacing / 2;
+        padding: 0;
+
+        &:after {
+            display: none;
+        }
+    }
+
+    // inner
+    &-inner {
+        border-left: 1px solid $color-body;
+        border-right: 1px solid $color-body;
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        grid-template-rows: auto;
+
+        @include mobile {
+            grid-template-columns: 100%;
+        }
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            list-style-type: none;
+            margin: 0;
+            padding: 0 $global-spacing;
+
+            @include mobile {
+                padding: 0 #{$global-spacing / 2};
+            }
+
+            li {
+                border-bottom: 1px solid $color-body;
+                padding: calc(#{$global-spacing / 2}) 0;
+
+                &:first-child {
+                    border-top: 1px solid $color-body;
+                }
+
+                @include mobile {
+                    &:last-of-type {
+                        border-bottom: none;
+                    }
+                }
+
+                a {
+                    color: $color-body;
+                    display: inline-block;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    // heading link
+    &-heading {
+        display: flex;
+        margin: 0;
+
+        span {
+            @include font-size($font-scroll-min, $font-scroll-max);
+            color: $color-body;
+            font-family: $heading-font;
+            font-weight: $font-weight-bold;
+            line-height: 1;
+            text-transform: uppercase;
+            padding: 0 $global-spacing-md;
+            position: relative;
+
+            @include mobile {
+                padding: 0 #{$global-spacing / 2};
+            }
+        }
+
+        // container
+        &-container {
+            border-right: 1px solid $color-body;
+            overflow: hidden;
         }
     }
 }
