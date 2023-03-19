@@ -20,7 +20,7 @@ let options = {
 const Scroll = () => {
 
     useEffect(() => {
-        if (window.matchMedia("(min-width: 1024px)").matches) {
+        if (window.matchMedia("(min-width: 991px)").matches) {
             const scroller = Scrollbar.init(document.querySelector('.content-wrapper'), options);
 
             // set scrolltrigger proxy to work with smooth scrollbar
@@ -36,7 +36,7 @@ const Scroll = () => {
             // set skewing on scroll
             let proxy = { skew: 0 },
                 skewSetter = gsap.quickSetter(".get-skewed", "skewY", "deg"), // fast
-                clamp = gsap.utils.clamp(-1, 1); // don't let the skew go beyond 2 degrees.
+                clamp = gsap.utils.clamp(-2, 2); // don't let the skew go beyond 2 degrees.
 
             ScrollTrigger.create({
                 scroller: ".content-wrapper",

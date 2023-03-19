@@ -24,12 +24,12 @@ html, body {
     a {
         cursor: none;
 
-        @include mobile {
+        @include device(tablet) {
             cursor: default !important;
         }
     }
 
-    @include mobile {
+    @include device(tablet) {
         cursor: default !important;
         overflow: visible;
     }
@@ -59,7 +59,7 @@ html, body {
         //padding: 0 #{$global-spacing-md};
     }
 
-    @include mobile {
+    @include device(tablet) {
         height: auto;
         padding: 0;
 
@@ -111,7 +111,7 @@ $cursor-size: 30px;
         }
     }
 
-    @include mobile {
+    @include device(tablet) {
         display: none;
     }
 }
@@ -137,9 +137,8 @@ canvas {
     top: 0;
     width: 100%;
 
-    @include mobile {
+    @include device(mobile) {
         padding: 0 15px;
-        width: 100%;
     }
 
     &.transition-enter {

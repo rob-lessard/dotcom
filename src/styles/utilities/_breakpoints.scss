@@ -1,16 +1,17 @@
 // Import variables
 @import "variables";
 
-// mobile
-@mixin mobile {
-  @media only screen
-    and (max-device-width: 767px)
-    { @content; }
-}
+@mixin device ($breakpoint) {
 
-@mixin tablet {
-  @media only screen
-    and (min-device-width: 768px)
-    and (max-device-width: 1024px)
-    { @content; }
+  @if $breakpoint == tablet {
+    @media only screen and (max-width: 990.99px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == mobile {
+    @media only screen and (max-width: 767px) {
+      @content;
+    }
+  }
 }

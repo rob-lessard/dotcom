@@ -6,7 +6,6 @@ import Scroll from "../scripts/scrollEffects";
 import Navigation from "../components/navigation/Navigation";
 import Intro from "../components/intro/Intro";
 import Projects from "../components/project-list/Projects";
-import About from "../components/about/About";
 import Contact from "../components/contact/Contact";
 
 const Home = () => {

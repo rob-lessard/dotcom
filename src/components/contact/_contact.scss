@@ -20,13 +20,18 @@
         border-top: 1px solid $color-body;
     }
 
-    @include mobile {
-        margin-bottom: $global-spacing / 2;
-        padding: 0;
+    @include device(tablet) {
+        margin-bottom: $global-spacing;
+        padding: 0 $global-spacing;
 
         &:after {
             display: none;
         }
+    }
+
+    @include device(mobile) {
+        margin-bottom: $global-spacing / 2;
+        padding: 0;
     }
 
     // inner
@@ -37,7 +42,7 @@
         grid-template-columns: 1.5fr 1fr;
         grid-template-rows: auto;
 
-        @include mobile {
+        @include device(tablet) {
             grid-template-columns: 100%;
         }
 
@@ -49,7 +54,11 @@
             margin: 0;
             padding: 0 $global-spacing;
 
-            @include mobile {
+            @include device(tablet) {
+                padding: 0 $global-spacing;
+            }
+
+            @include device(mobile) {
                 padding: 0 #{$global-spacing / 2};
             }
 
@@ -61,7 +70,7 @@
                     border-top: 1px solid $color-body;
                 }
 
-                @include mobile {
+                @include device(tablet) {
                     &:last-of-type {
                         border-bottom: none;
                     }
@@ -91,7 +100,11 @@
             padding: 0 $global-spacing-md;
             position: relative;
 
-            @include mobile {
+            @include device(tablet) {
+                padding: 0 $global-spacing;
+            }
+
+            @include device(mobile) {
                 padding: 0 #{$global-spacing / 2};
             }
         }
@@ -100,6 +113,10 @@
         &-container {
             border-right: 1px solid $color-body;
             overflow: hidden;
+
+            @include device(tablet) {
+                border: none;
+            }
         }
     }
 }

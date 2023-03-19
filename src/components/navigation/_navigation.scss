@@ -10,7 +10,11 @@
     margin-top: auto;
     padding: 0 $global-spacing-md;
 
-    @include mobile {
+    @include device(tablet) {
+        display: none;
+    }
+
+    @include device(mobile) {
         display: none;
     }
 
